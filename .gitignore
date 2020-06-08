@@ -21,3 +21,11 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.now
+.idea/misc.xml
+.idea/modules.xml
+.idea/personal-website.iml
+.idea/vcs.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/workspace.xml
