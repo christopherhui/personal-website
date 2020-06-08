@@ -1,24 +1,33 @@
-import React, { Component } from "react";
+import React from 'react';
+import { bounce } from 'react-animations';
+import Radium, {StyleRoot} from 'radium';
 
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+import JumboTron from "react-bootstrap/Jumbotron";
+import Container from "react-bootstrap/Container"
 
-export default class Home extends Component {
+export default class Home extends React.Component {
   render() {
     return (
       <div className="mt-5 ml-5">
-        <Card style={{ width: "50rem" }}>
-          <Card.Img variant="top" src="public/log192.png" />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-          </Card.Body>
-        </Card>
+        <JumboTron fluid style={jumbo}>
+          <Container>
+            <h1 style={styles.bounce}>Christopher Hui</h1>
+            <p>Welcome to my site</p>
+          </Container>
+        </JumboTron>
       </div>
     );
+  }
+}
+
+const jumbo = {
+  background: 'steelblue',
+  color: 'white'
+}
+
+const styles = {
+  bounce: {
+    animation: 'x 1s',
+    animationName: Radium.keyframes(bounce, 'bounce')
   }
 }
