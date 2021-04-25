@@ -1,33 +1,25 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react';
+import * as React from 'react';
 
-export default class Navbar extends Component {
-  render() {
-    return (
-      <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-        <Link to="/" className="navbar-brand">
-          Chris' Site
-        </Link>
-        <div className="collpase navbar-collapse">
-          <ul className="navbar-nav mr-auto">
-            <li className="navbar-item">
-              <Link to="/" className="nav-link">
-                Exercises
-              </Link>
-            </li>
-            <li className="navbar-item">
-              <Link to="/create" className="nav-link">
-                Create Exercise Log
-              </Link>
-            </li>
-            <li className="navbar-item">
-              <Link to="/user" className="nav-link">
-                Create User
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    );
-  }
-}
+const navbar = css({
+  display: 'flex',
+  justifyContent: 'space-evenly',
+  marginTop: '3em',
+  marginRight: '10%',
+  marginLeft: '10%'
+});
+
+const Navbar = () => {
+  return (
+    <div css={navbar}>
+      <p>Home</p>
+      <p>Experience</p>
+      <p>Awesome Hackathons</p>
+      <p>Heartfelt Projects</p>
+      <p></p>
+    </div>
+  );
+};
+
+export default Navbar;

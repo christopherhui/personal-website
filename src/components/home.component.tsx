@@ -1,68 +1,36 @@
-import React from "react";
-import { bounce } from "react-animations";
-import Radium, { StyleRoot } from "radium";
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react';
+import * as React from 'react';
+import { Image } from 'react-bootstrap';
+import doge from '../assets/doge.png';
 
-import JumboTron from "react-bootstrap/Jumbotron";
-import Container from "react-bootstrap/Container";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+const rcHomeContainer = css({
+  marginTop: '3em',
+  marginRight: '10%',
+  marginLeft: '10%'
+});
 
-import nwhacks2019 from "../assets/nwhacks2019.jpg";
-import nwhacks2020 from "../assets/nwhacks2020.jpg";
+const aboutMe = css({
+  background: 'steelblue',
+  borderRadius: '1em',
+  boxShadow: '10px 10px 100px 5px steelblue'
+});
 
-export default class Home extends React.Component {
-  render() {
-    return (
-      <div>
-        <JumboTron fluid style={jumbo}>
-          <Container>
-            <h1 style={styles.bounce}>Christopher Hui</h1>
-            <p>Welcome to my site</p>
-          </Container>
-        </JumboTron>
-        <Container>
-          <Row>
-            <Col>
-              <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src={nwhacks2019} />
-                <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                  </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col>
-              <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src={nwhacks2020} />
-                <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                  </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
+const aboutImage = css({
+  width: '10rem',
+  height: '10rem',
+  padding: '0.5em',
+});
+
+const Home = () => {
+  return (
+    <div css={rcHomeContainer}>
+      <div css={aboutMe}>
+        <Image src={doge} roundedCircle css={aboutImage} />
       </div>
-    );
-  }
-}
-
-const jumbo = {
-  background: "steelblue",
-  color: "white",
+    </div>
+  );
 };
 
-const styles = {
-  bounce: {
-    animation: "x 1s",
-    animationName: Radium.keyframes(bounce, "bounce"),
-  },
-};
+
+export default Home;
