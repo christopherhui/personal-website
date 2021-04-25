@@ -1,5 +1,7 @@
-import React from 'react';
-import { BrowserRouter as Router, Route} from "react-router-dom";
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react';
+import * as React from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Navbar from './components/navbar.component';
 import Home from './components/home.component';
@@ -14,6 +16,6 @@ const App: React.FC = () => {
     </Router>
 
   );
-}
+};
 
 export default App;
