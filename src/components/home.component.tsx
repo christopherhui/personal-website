@@ -18,6 +18,9 @@ const aboutMe = css({
   borderRadius: '0.75em',
   padding: '1em 2em',
   display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexWrap: 'wrap',
   ':hover': {
     boxShadow: `5px 5px 30px 2px ${BLUE}`,
   }
@@ -35,7 +38,7 @@ const intro = css({
   background: 'white',
   borderRadius: '0.75em',
   padding: '2em',
-  width: '100%'
+  width: '80%'
 });
 
 const experience = css({
@@ -54,7 +57,15 @@ const Home = () => {
         <Image src={doge} roundedCircle css={aboutImage} />
         <div css={intro}>
           <h1>Hi!</h1>
-          <p>I'm Christopher, a fourth-year Computer Science student at UBC interested in software and web development.</p>
+          <p>I'm Christopher, a fourth-year Computer Science student at UBC interested in software and web development.
+          I have an interest in participating in as many hackathons as possible and doing competitive programming, which I have been participating
+          for over 3 years. Some of my other interests include:
+          </p>
+          <ul>
+            <li>Writing webpages using React Typescript</li>
+            <li>C++ Development</li>
+            <li>Creating scripts in Python</li>
+          </ul>
         </div>
       </div>
       <div css={experience}>
