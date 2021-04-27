@@ -36,7 +36,7 @@ const aboutImage = css({
   width: '10rem',
   height: '10rem',
   padding: '0.5em',
-  background: '#292825',
+  background: '#	292825',
 });
 
 const intro = css({

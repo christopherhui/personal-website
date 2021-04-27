@@ -6,23 +6,26 @@ const navbar = css({
   position: 'fixed',
   display: 'flex',
   justifyContent: 'space-evenly',
-  marginTop: '3em',
   marginRight: '10%',
-  marginLeft: '10%',
   width: '100%',
   color: 'white',
   flexWrap: 'wrap',
   zIndex: 100,
+  opacity: 0.7,
+  'p': {
+    marginTop: '15px',
+    opacity: 1,
+  }
 });
 
 const Navbar = () => {
   return (
-    <div css={navbar}>
+    <div css={css`${navbar}; background-color: #29539b;
+    background-image: linear-gradient(315deg, #29539b 0%, #1e3b70 74%);`}>
       <p>Home</p>
       <p>Experience</p>
       <p>Awesome Hackathons</p>
       <p>Heartfelt Projects</p>
-      <p></p>
     </div>
   );
 };
