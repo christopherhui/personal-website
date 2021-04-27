@@ -2,20 +2,16 @@
 import { css, jsx } from '@emotion/react';
 import * as React from 'react';
 import { Image } from 'react-bootstrap';
-import { BLUE, RED } from './colors';
+import { BLUE, WHITE } from './colors';
 import Timeline from './timeline.component';
+import Navbar from './navbar.component';
 
 import doge from '../assets/doge.png';
-import nightsky from '../assets/nightsky.jpg';
-
-const rcHomeContainer = css({
-  marginTop: '3em',
-});
 
 const aboutMe = css({
+  marginTop: '10rem',
   marginRight: '10%',
   marginLeft: '10%',
-  background: BLUE,
   borderRadius: '0.75em',
   padding: '1em 2em',
   display: 'flex',
@@ -23,32 +19,52 @@ const aboutMe = css({
   justifyContent: 'center',
   flexWrap: 'wrap',
   ':hover': {
-    boxShadow: `5px 5px 30px 2px ${BLUE}`,
+    boxShadow: `5px 5px 30px 2px #0056d2`,
   }
 });
 
-const aboutMeBackground = css({
-  height: '100vh',
-});
+const aboutMeBackground = css`
+  height: 1000px;
+  background-color: #eec0c6;
+  background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
+  margin-bottom: -50px;
+  overflow: hidden;
+`;
 
 const aboutImage = css({
   width: '10rem',
   height: '10rem',
   padding: '0.5em',
-  background: RED,
+  background: WHITE,
 });
 
 const intro = css({
   marginLeft: '2em',
-  background: 'white',
+  background: BLUE,
   borderRadius: '0.75em',
   padding: '2em',
-  width: '80%'
+  width: '80%',
+  color: 'white'
 });
 
 const expBackground = css`
-  background-color: #303030;
-  marginBottom: '-35px';
+  background-color: #6a93cb;
+  background-image: linear-gradient(315deg, #6a93cb 0%, #a4bfef 74%);
+  margin-bottom: -32px;
+`;
+
+const hackathonBackground = css`
+  height: 500px;
+  background-color: #21d190;
+  background-image: linear-gradient(315deg, #21d190 0%, #d65bca 74%);
+  margin-bottom: -35px;
+`;
+
+const projectBackground = css`
+  height: 500px;
+  background-color: #537895;
+  background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+  margin-bottom: -35px;
 `;
 
 const experience = css({
@@ -64,9 +80,12 @@ const expTitle = css({
 
 const Home = () => {
   return (
-    <div css={rcHomeContainer}>
+    <div>
+      <Navbar />
       <div css={aboutMeBackground}>
-        <div css={aboutMe}>
+        <div css={css`${aboutMe}; 
+          background-color: #485461;
+          background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);`}>
           <Image src={doge} roundedCircle css={aboutImage} />
           <div css={intro}>
             <h1>Hi!</h1>
@@ -87,6 +106,18 @@ const Home = () => {
           <br />
           <h1 css={expTitle}>Experience</h1>
           <Timeline />
+        </div>
+      </div>
+      <div css={hackathonBackground}>
+        <div css={experience}>
+          <br />
+          <h1 css={expTitle}>Hackathon Experiences</h1>
+        </div>
+      </div>
+      <div css={projectBackground}>
+        <div css={experience}>
+          <br />
+          <h1 css={expTitle}>Personal Projects</h1>
         </div>
       </div>
     </div>

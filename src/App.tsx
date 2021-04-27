@@ -10,7 +10,6 @@ const App: React.FC = () => {
   return (
     <Router>
       <div className="Container">
-        <Navbar />
         <Route path="/" exact component={Home} />
       </div>
     </Router>
