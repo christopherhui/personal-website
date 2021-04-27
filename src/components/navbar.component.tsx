@@ -10,7 +10,9 @@ const navbar = css({
   marginRight: '10%',
   marginLeft: '10%',
   width: '100%',
-  color: 'white'
+  color: 'white',
+  flexWrap: 'wrap',
+  zIndex: 100,
 });
 
 const Navbar = () => {

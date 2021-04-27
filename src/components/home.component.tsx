@@ -24,18 +24,19 @@ const aboutMe = css({
 });
 
 const aboutMeBackground = css`
-  height: 1000px;
   background-color: #eec0c6;
   background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
   margin-bottom: -50px;
   overflow: hidden;
+  min-height: 70rem;
+  max-height: 120rem;
 `;
 
 const aboutImage = css({
   width: '10rem',
   height: '10rem',
   padding: '0.5em',
-  background: WHITE,
+  background: '#292825',
 });
 
 const intro = css({
