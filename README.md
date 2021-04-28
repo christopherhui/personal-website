@@ -1,3 +1,7 @@
 # Personal Site
 
-I honestly don't know what to write here.
+If you would like to run the app:
+```
+1. yarn
+2. yarn start
+```
