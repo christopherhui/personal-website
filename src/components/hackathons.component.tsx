@@ -1,7 +1,10 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
 import * as React from 'react';
+import { useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
+
+import BearModal from './bearmodal.component';
 
 import bearBuddies from '../assets/bearbuddies.png';
 import chargeUP from '../assets/chargeUP.png';
@@ -44,8 +47,16 @@ const moreInfoButton = css({
 });
 
 const Hackathons = () => {
+  const [showBear, setShowBear] = useState<boolean>(false);
+  const [showCharge, setShowCharge] = useState<boolean>(false);
+  const [showChroniclr, setShowChroniclr] = useState<boolean>(false);
+  const [showProf, setShowProf] = useState<boolean>(false);
+  const [showTee, setShowTee] = useState<boolean>(false);
+  const [showNoNo, setShowNoNo] = useState<boolean>(false);
+
   return (
     <div css={hackathonCards}>
+      <BearModal showBear={showBear} handleClose={() => setShowBear(false)} />
       <Card css={css`${hackathonCard}; ${altCardBackground};`}>
         <Card.Img variant="top" src={bearBuddies} />
         <Card.Body>
@@ -53,7 +64,7 @@ const Hackathons = () => {
           <Card.Text css={cardText}>
             Created a solution that would ease mental health issues among kids, young adults, and adults by allowing them to play with a Tamagotchi/virtual pet that grows and plays with them. We created a web application allowing users to customize and play with their own pet by doing a set number of actions with it.
           </Card.Text>
-          <Button variant="primary" css={moreInfoButton}>More info</Button>
+          <Button variant="primary" css={moreInfoButton} onClick={() => setShowBear(true)}>More info</Button>
         </Card.Body>
       </Card>
       <Card css={css`${hackathonCard}; ${altCardBackground};`}>
@@ -63,7 +74,7 @@ const Hackathons = () => {
           <Card.Text css={cardText}>
             Our team formed when we came to a consensus that we all wanted to be entrepreneurs who could positively impact the world. We want to encourage everyone to decrease their carbon footprint not only limited to converting to driving an EV but also sharing resources such as the chargers.
           </Card.Text>
-          <Button variant="primary" css={moreInfoButton}>More info</Button>
+          <Button variant="primary" css={moreInfoButton} onClick={() => setShowCharge(true)}>More info</Button>
         </Card.Body>
       </Card>
       <Card css={css`${hackathonCard}; ${defaultCardBackground};`}>
@@ -73,7 +84,7 @@ const Hackathons = () => {
           <Card.Text css={cardText}>
             One of the main concerns of today's society is the increasing number of responsibilities that an individual has in their lives. In many ways, a person has many goals to want to achieve but unfortunately, the inability to plan out how to target such wishes.
           </Card.Text>
-          <Button variant="primary" css={moreInfoButton}>More info</Button>
+          <Button variant="primary" css={moreInfoButton} onClick={() => setShowChroniclr(true)}>More info</Button>
         </Card.Body>
       </Card>
       <Card css={css`${hackathonCard}; ${defaultCardBackground};`}>
@@ -83,7 +94,7 @@ const Hackathons = () => {
           <Card.Text css={cardText}>
             We wanted a way to aggregate professor data in order to provide students the easiest way to select their professors for their classes. This was a vision that many students shared interest in using if it existed.
           </Card.Text>
-          <Button variant="primary" css={moreInfoButton}>More info</Button>
+          <Button variant="primary" css={moreInfoButton} onClick={() => setShowProf(true)}>More info</Button>
         </Card.Body>
       </Card>
       <Card css={css`${hackathonCard}; ${defaultCardBackground};`}>
@@ -93,7 +104,7 @@ const Hackathons = () => {
           <Card.Text css={cardText}>
             We want to provide a platform to help sponsoring companies find influencers to partner up with and vice versa for the influencers. It is a platform for companies to find suitable influencers based on pairwise comparison and keyword search.
           </Card.Text>
-          <Button variant="primary" css={moreInfoButton}>More info</Button>
+          <Button variant="primary" css={moreInfoButton} onClick={() => setShowTee(true)}>More info</Button>
         </Card.Body>
       </Card>
       <Card css={css`${hackathonCard}; ${defaultCardBackground};`}>
@@ -103,10 +114,10 @@ const Hackathons = () => {
           <Card.Text css={cardText}>
             The inspiration for our name came from the feeling when you see one of our notifications. It'll get you saying, "NONONO" in no time!
           </Card.Text>
-          <Button variant="primary" css={moreInfoButton}>More info</Button>
+          <Button variant="primary" css={moreInfoButton} onClick={() => setShowNoNo(true)}>More info</Button>
         </Card.Body>
       </Card>
-    </div >
+    </div>
   );
 };
 
