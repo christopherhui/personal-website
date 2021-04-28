@@ -34,7 +34,7 @@ const aboutMeBackground = css`
   background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
   margin-bottom: -50px;
   overflow: hidden;
-  min-height: 50rem;
+  min-height: 60rem;
   max-height: 150rem;
 `;
 
@@ -53,7 +53,7 @@ const expBackground = css`
 
 const hackathonBackground = css`
   min-height: 50rem;
-  max-height: 150rem;
+  max-height: 250rem;
   background-color: #21d190;
   background-image: linear-gradient(315deg, #21d190 0%, #d65bca 74%);
   margin-bottom: -35px;
