@@ -3,6 +3,7 @@ import { css, jsx } from '@emotion/react';
 import * as React from 'react';
 import { Image, Button } from 'react-bootstrap';
 import Timeline from './timeline.component';
+import Hackathons from './hackathons.component';
 import { Link } from 'react-router-dom';
 import { ArrowRightSquareFill } from 'react-bootstrap-icons';
 
@@ -51,14 +52,16 @@ const expBackground = css`
 `;
 
 const hackathonBackground = css`
-  height: 500px;
+  min-height: 50rem;
+  max-height: 150rem;
   background-color: #21d190;
   background-image: linear-gradient(315deg, #21d190 0%, #d65bca 74%);
   margin-bottom: -35px;
 `;
 
 const projectBackground = css`
-  height: 500px;
+  min-height: 50rem;
+  max-height: 150rem;
   background-color: #537895;
   background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
   margin-bottom: -35px;
@@ -72,7 +75,7 @@ const experience = css({
 });
 
 const expTitle = css({
-  textAlign: 'center'
+  textAlign: 'center',
 });
 
 const bottomHeader = css({
@@ -91,6 +94,13 @@ const socials = css({
 
 const resume = css({
   float: 'right',
+});
+
+const hackathons = css({
+  marginTop: '2em',
+  marginRight: '12%',
+  marginLeft: '12%',
+  color: 'white',
 });
 
 const Home = () => {
@@ -150,9 +160,10 @@ const Home = () => {
         </div>
       </div>
       <div css={hackathonBackground} id='#hackathons'>
-        <div css={experience}>
+        <div css={hackathons}>
           <br />
           <h1 css={expTitle}>Hackathon Experiences</h1>
+          <Hackathons />
         </div>
       </div>
       <div css={projectBackground} id='#projects'>
