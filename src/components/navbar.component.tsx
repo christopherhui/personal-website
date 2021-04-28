@@ -3,6 +3,7 @@ import { css, jsx } from '@emotion/react';
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useSpring, animated } from 'react-spring';
 
 const navbar = ({ scrollPosition }: { scrollPosition: number; }) => css({
   position: 'fixed',
@@ -12,7 +13,6 @@ const navbar = ({ scrollPosition }: { scrollPosition: number; }) => css({
   width: '100%',
   flexWrap: 'wrap',
   zIndex: 100,
-  opacity: scrollPosition <= 100 ? 0.5 : 0.15,
   ':hover': {
     opacity: 0.7,
   },
@@ -42,8 +42,13 @@ const Navbar = () => {
     };
   }, []);
 
+  const fadeStyles = useSpring({
+    from: { opacity: 0.5 },
+    to: { opacity: scrollPosition <= 100 ? 0.5 : 0.15 },
+  });
+
   return (
-    <div css={css`${navbar({ scrollPosition })}; background-color: #29539b;
+    <animated.div style={fadeStyles} css={css`${navbar({ scrollPosition })}; background-color: #29539b;
     background-image: linear-gradient(315deg, #29539b 0%, #1e3b70 74%);`}>
       <Link to={`/#home`}>
         <p>Home</p>
@@ -57,7 +62,7 @@ const Navbar = () => {
       <Link to={`/#projects`}>
         <p>Heartfelt Projects</p>
       </Link>
-    </div >
+    </animated.div >
   );
 };
 
