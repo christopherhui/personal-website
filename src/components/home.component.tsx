@@ -1,17 +1,20 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
 import * as React from 'react';
-import { Image } from 'react-bootstrap';
-import { BLUE, WHITE } from './colors';
+import { Image, Button } from 'react-bootstrap';
+import { BLUE } from './colors';
 import Timeline from './timeline.component';
-import Navbar from './navbar.component';
+import { Link } from 'react-router-dom';
 
 import doge from '../assets/doge.png';
 
-const aboutMe = css({
-  marginTop: '10rem',
+const aboutMargins = css({
+  marginTop: '5rem',
   marginRight: '10%',
   marginLeft: '10%',
+});
+
+const aboutMe = css({
   borderRadius: '0.75em',
   padding: '1em 2em',
   display: 'flex',
@@ -28,8 +31,8 @@ const aboutMeBackground = css`
   background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
   margin-bottom: -50px;
   overflow: hidden;
-  min-height: 70rem;
-  max-height: 120rem;
+  min-height: 50rem;
+  max-height: 150rem;
 `;
 
 const aboutImage = css({
@@ -82,9 +85,8 @@ const expTitle = css({
 const Home = () => {
   return (
     <div>
-      <Navbar />
-      <div css={aboutMeBackground}>
-        <div css={css`${aboutMe}; 
+      <div css={aboutMeBackground} id='#home'>
+        <div css={css`${aboutMe}; ${aboutMargins}; 
           background-color: #485461;
           background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);`}>
           <Image src={doge} roundedCircle css={aboutImage} />
@@ -101,21 +103,24 @@ const Home = () => {
             </ul>
           </div>
         </div>
+        <div css={css`${aboutMargins}; display: flex; align-items: center; justify-content: center;`}>
+          <Button variant="outline-primary" size="lg">View my experiences</Button>
+        </div>
       </div>
-      <div css={expBackground}>
+      <div css={expBackground} id='#experience'>
         <div css={experience}>
           <br />
           <h1 css={expTitle}>Experience</h1>
           <Timeline />
         </div>
       </div>
-      <div css={hackathonBackground}>
+      <div css={hackathonBackground} id='#hackathons'>
         <div css={experience}>
           <br />
           <h1 css={expTitle}>Hackathon Experiences</h1>
         </div>
       </div>
-      <div css={projectBackground}>
+      <div css={projectBackground} id='#projects'>
         <div css={experience}>
           <br />
           <h1 css={expTitle}>Personal Projects</h1>
