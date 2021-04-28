@@ -2,6 +2,7 @@
 import { css, jsx } from '@emotion/react';
 import * as React from 'react';
 import { Modal, Image, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import nwhacks2021 from '../assets/nwhacks2021.jpg';
 
@@ -27,13 +28,17 @@ const BearModal = ({ showBear, handleClose }: Props) => {
         Unlike my previous years, I worked with a new team, which I absolutely loved! I hope to participate in more hackathons with them in the future.
         <br />
         <br />
-        Also Lina if you are reading this, I'm glad we got to meet each other this way!
+        Also Lina if you are reading this, I'm happy to have met you 😊.
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="info">Devpost</Button>
-        <Button variant="primary">See the app!</Button>
+        <Link to={{ pathname: 'https://devpost.com/software/bear-buddies-3barhl' }} target="_blank">
+          <Button variant="info">Devpost</Button>
+        </Link>
+        <Link to={{ pathname: 'https://bear-buddies.herokuapp.com' }} target="_blank">
+          <Button variant="primary">See the app!</Button>
+        </Link>
       </Modal.Footer>
-    </Modal>
+    </Modal >
   );
 };
 

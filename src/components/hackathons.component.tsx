@@ -5,6 +5,10 @@ import { useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 
 import BearModal from './bearmodal.component';
+import ChargeModal from './charge.component';
+import ChroniclrModal from './chroniclrmodal.component';
+import ProfModal from './profstats.component';
+import NoNoModal from './nonomodal.component';
 
 import bearBuddies from '../assets/bearbuddies.png';
 import chargeUP from '../assets/chargeUP.png';
@@ -12,6 +16,7 @@ import chroniclr from '../assets/chroniclr.png';
 import profStats from '../assets/profStats.png';
 import teepot from '../assets/teepot.png';
 import nonononotifications from '../assets/nonononotifications.png';
+import TeeModal from './tee.component';
 
 const hackathonCards = css({
   display: 'flex',
@@ -57,6 +62,11 @@ const Hackathons = () => {
   return (
     <div css={hackathonCards}>
       <BearModal showBear={showBear} handleClose={() => setShowBear(false)} />
+      <ChargeModal showCharge={showCharge} handleClose={() => setShowCharge(false)} />
+      <ChroniclrModal showChroniclr={showChroniclr} handleClose={() => setShowChroniclr(false)} />
+      <ProfModal showProf={showProf} handleClose={() => setShowProf(false)} />
+      <TeeModal showTee={showTee} handleClose={() => setShowTee(false)} />
+      <NoNoModal showNono={showNoNo} handleClose={() => setShowNoNo(false)} />
       <Card css={css`${hackathonCard}; ${altCardBackground};`}>
         <Card.Img variant="top" src={bearBuddies} />
         <Card.Body>
@@ -117,7 +127,7 @@ const Hackathons = () => {
           <Button variant="primary" css={moreInfoButton} onClick={() => setShowNoNo(true)}>More info</Button>
         </Card.Body>
       </Card>
-    </div>
+    </div >
   );
 };
 
