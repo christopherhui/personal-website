@@ -2,11 +2,12 @@
 import { css, jsx } from '@emotion/react';
 import * as React from 'react';
 import { Image, Button } from 'react-bootstrap';
-import { BLUE } from './colors';
 import Timeline from './timeline.component';
 import { Link } from 'react-router-dom';
+import { ArrowRightSquareFill } from 'react-bootstrap-icons';
 
 import doge from '../assets/doge.png';
+import '../styles/arrow.css';
 
 const aboutMargins = css({
   marginTop: '5rem',
@@ -21,6 +22,7 @@ const aboutMe = css({
   alignItems: 'center',
   justifyContent: 'center',
   flexWrap: 'wrap',
+  color: 'white',
   ':hover': {
     boxShadow: `5px 5px 30px 2px #0056d2`,
   }
@@ -39,16 +41,7 @@ const aboutImage = css({
   width: '10rem',
   height: '10rem',
   padding: '0.5em',
-  background: '#	292825',
-});
-
-const intro = css({
-  marginLeft: '2em',
-  background: BLUE,
-  borderRadius: '0.75em',
-  padding: '2em',
-  width: '80%',
-  color: 'white'
+  marginLeft: '1em'
 });
 
 const expBackground = css`
@@ -82,29 +75,71 @@ const expTitle = css({
   textAlign: 'center'
 });
 
+const bottomHeader = css({
+  marginTop: '1.5em',
+  marginRight: '10%',
+  marginLeft: '10%',
+});
+
+const socials = css({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'left',
+  width: '50%',
+  float: 'left',
+});
+
+const resume = css({
+  float: 'right',
+});
+
 const Home = () => {
   return (
     <div>
       <div css={aboutMeBackground} id='#home'>
         <div css={css`${aboutMe}; ${aboutMargins}; 
-          background-color: #485461;
-          background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);`}>
-          <Image src={doge} roundedCircle css={aboutImage} />
-          <div css={intro}>
-            <h1>Hi!</h1>
-            <p>I'm Christopher, a fourth-year Computer Science student at UBC interested in software and web development.
-            I have an interest in participating in as many hackathons as possible and doing competitive programming, which I have been participating
-            for over 3 years. Some of my other interests include:
-          </p>
-            <ul>
-              <li>Writing webpages using React Typescript</li>
-              <li>C++ Development</li>
-              <li>Creating scripts in Python</li>
-            </ul>
+          background-color: #7fcec5;
+          background-image: linear-gradient(315deg, #7fcec5 0%, #14557b 74%);`}>
+          <div css={css`display: flex; align-items: center; flex-wrap: wrap`}>
+            <div css={css`width: 83%`}>
+              <h1>Hi!</h1>
+              <p>I'm Christopher, a fourth-year Computer Science student at UBC interested in software and web development.
+              I have an interest in participating in as many hackathons as possible and doing competitive programming, which I have been participating
+              for over 3 years. Some of my other interests include:
+              </p>
+              <ul>
+                <li>Writing webpages using React Typescript</li>
+                <li>C++ Development</li>
+                <li>Creating scripts in Python</li>
+              </ul>
+            </div>
+            <Image src={doge} roundedCircle css={css`${aboutImage}; 
+                background-color: #000000;
+                background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);`} />
           </div>
         </div>
+        <div css={bottomHeader}>
+          <div css={socials}>
+            <a href="https://linkedin.com/in/christophergkhui" target="blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="christophergkhui" height="30" width="40" /></a>
+            <a href="https://fb.com/christopher.hui.1865" target="blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/facebook.svg" alt="christopher.hui.1865" height="30" width="40" /></a>
+            <a href="https://instagram.com/its.quatchi" target="blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/instagram.svg" alt="its.quatchi" height="30" width="40" /></a>
+            <a href="https://codeforces.com/profile/htmlbot" target="blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/codeforces.svg" alt="htmlbot" height="30" width="40" /></a>
+            <a href="https://www.leetcode.com/christopherhui" target="blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/leetcode.svg" alt="christopherhui" height="30" width="40" /></a>
+          </div>
+          <div css={resume}>
+            <Button variant="light" size='sm' css={css`padding: .35rem 0.75rem; font-weight: bold;`}>
+              <span>View my resume</span>
+              <ArrowRightSquareFill css={css`margin-left: 10px; margin-top: -3px`} />
+            </Button>
+          </div>
+          <div css={css`clear: both`} />
+        </div>
         <div css={css`${aboutMargins}; display: flex; align-items: center; justify-content: center;`}>
-          <Button variant="outline-primary" size="lg">View my experiences</Button>
+          <Link to='#experience'>
+            <Button variant="light" size='lg'>View my experiences </Button>
+            <div className="arrow bounce" />
+            <div className="arrow bounce" />
+          </Link>
         </div>
       </div>
       <div css={expBackground} id='#experience'>

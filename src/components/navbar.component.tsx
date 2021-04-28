@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 
-const navbar = ({ scrollPosition }: { scrollPosition: number; }) => css({
+const navbar = css({
   position: 'fixed',
   display: 'flex',
   justifyContent: 'space-evenly',
@@ -25,13 +25,21 @@ const navbar = ({ scrollPosition }: { scrollPosition: number; }) => css({
   }
 });
 
+let prevScrollPosition = 0.0;
+
 const Navbar = () => {
 
-  const [scrollPosition, setScrollPosition] = useState<number>(0);
+  const [scrollUp, setScrollUp] = useState<boolean>(true);
 
   const handleScroll = () => {
     const position = window.pageYOffset;
-    setScrollPosition(position);
+    if (position > prevScrollPosition) {
+      setScrollUp(false);
+    }
+    else {
+      setScrollUp(true);
+    }
+    prevScrollPosition = position;
   };
 
   useEffect(() => {
@@ -43,13 +51,13 @@ const Navbar = () => {
   }, []);
 
   const fadeStyles = useSpring({
-    from: { opacity: 0.5 },
-    to: { opacity: scrollPosition <= 100 ? 0.5 : 0.15 },
+    from: { opacity: 0.7 },
+    to: { opacity: scrollUp ? 0.7 : 0 },
   });
 
   return (
-    <animated.div style={fadeStyles} css={css`${navbar({ scrollPosition })}; background-color: #29539b;
-    background-image: linear-gradient(315deg, #29539b 0%, #1e3b70 74%);`}>
+    <animated.div style={fadeStyles} css={css`${navbar}; background-color: #29539b;
+      background-image: linear-gradient(315deg, #29539b 0%, #1e3b70 74%);`}>
       <Link to={`/#home`}>
         <p>Home</p>
       </Link>
@@ -66,4 +74,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar;;
