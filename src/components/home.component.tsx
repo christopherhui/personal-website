@@ -296,7 +296,6 @@ const Home = () => {
             <ExperienceNavigateSection isVisible={isVisible} />
           )}
         </VisibilitySensor>
-
       </div>
       <div css={expBackground} id='#experience'>
         <div css={experience}>

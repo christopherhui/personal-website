@@ -3,6 +3,8 @@ import { css, jsx } from '@emotion/react';
 import * as React from 'react';
 import { useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
+import { useTrail, animated } from 'react-spring';
+import VisibilitySensor from 'react-visibility-sensor';
 
 import BearModal from './bearmodal.component';
 import ChargeModal from './charge.component';
@@ -17,6 +19,10 @@ import profStats from '../assets/profStats.png';
 import teepot from '../assets/teepot.png';
 import nonononotifications from '../assets/nonononotifications.png';
 import TeeModal from './tee.component';
+
+type VisibleProps = {
+  isVisible: boolean;
+};
 
 const hackathonCards = css({
   display: 'flex',
@@ -51,6 +57,8 @@ const moreInfoButton = css({
   bottom: 20,
 });
 
+const linkConfig = { mass: 5, tension: 2000, friction: 200, duration: 500 };
+
 const Hackathons = () => {
   const [showBear, setShowBear] = useState<boolean>(false);
   const [showCharge, setShowCharge] = useState<boolean>(false);
@@ -59,74 +67,99 @@ const Hackathons = () => {
   const [showTee, setShowTee] = useState<boolean>(false);
   const [showNoNo, setShowNoNo] = useState<boolean>(false);
 
+  const cards = [
+    {
+      background: altCardBackground,
+      src: bearBuddies,
+      title: 'nwHacks 2021: Bear Buddies',
+      text: 'Created a solution that would ease mental health issues among kids, young adults, and adults by allowing them to play with a Tamagotchi/virtual pet that grows and plays with them. We created a web application allowing users to customize and play with their own pet by doing a set number of actions with it.',
+      onClick: () => setShowBear(true),
+    }, {
+      background: altCardBackground,
+      src: chargeUP,
+      title: 'Dubhacks 2019: chargeUp',
+      text: 'Our team formed when we came to a consensus that we all wanted to be entrepreneurs who could positively impact the world. We want to encourage everyone to decrease their carbon footprint not only limited to converting to driving an EV but also sharing resources such as the chargers.',
+      onClick: () => setShowCharge(true),
+    }, {
+      background: defaultCardBackground,
+      src: chroniclr,
+      title: 'nwHacks 2020: Chroniclr',
+      text: `One of the main concerns of today's society is the increasing number of responsibilities that an individual has in their lives. In many ways, a person has many goals to want to achieve but unfortunately, the inability to plan out how to target such wishes.`,
+      onClick: () => setShowChroniclr(true),
+    }, {
+      background: defaultCardBackground,
+      src: profStats,
+      title: 'nwHacks 2019: ProfStats',
+      text: `We wanted a way to aggregate professor data in order to provide students the easiest way to select their professors for their classes. This was a vision that many students shared interest in using if it existed.`,
+      onClick: () => setShowProf(true),
+    }, {
+      background: defaultCardBackground,
+      src: teepot,
+      title: 'Dubhacks 2020: Teepot',
+      text: `We want to provide a platform to help sponsoring companies find influencers to partner up with and vice versa for the influencers. It is a platform for companies to find suitable influencers based on pairwise comparison and keyword search.`,
+      onClick: () => setShowTee(true),
+    }, {
+      background: defaultCardBackground,
+      src: nonononotifications,
+      title: 'TerribleHack VR: Nonononotifications',
+      text: `The inspiration for our name came from the feeling when you see one of our notifications. It'll get you saying, "NONONO" in no time!`,
+      onClick: () => setShowNoNo(true),
+    },
+  ];
+
+  const AnimCard = ({ isVisible }: VisibleProps) => {
+    const unlock = isVisible;
+
+    const cardAnimation = useTrail(cards.length, {
+      linkConfig,
+      opacity: unlock ? 1 : 0,
+      sc: unlock ? 0.9 : 0.8,
+      x: unlock ? "0%" : "100%",
+      y: unlock ? "0px" : "100px",
+      skewX: unlock ? 0 : 20,
+      from: {
+        opacity: 0,
+        sc: 0.8,
+        x: "100%",
+        y: "100px",
+        skewX: 20
+      },
+      delay: 500,
+    });
+
+    return (
+      <div css={hackathonCards}>
+        {cardAnimation.map(({ ...rest }, index) => (
+          <animated.div style={{ ...rest }} key={index}>
+            <Card css={css`${hackathonCard}; ${cards[index].background};`}>
+              <Card.Img variant="top" src={cards[index].src} />
+              <Card.Body>
+                <Card.Title>{cards[index].title}</Card.Title>
+                <Card.Text css={cardText}>
+                  {cards[index].text}
+                </Card.Text>
+                <Button variant="primary" css={moreInfoButton} onClick={cards[index].onClick}>More info</Button>
+              </Card.Body>
+            </Card>
+          </animated.div>
+        ))}
+      </div>
+    );
+  };
+
   return (
-    <div css={hackathonCards}>
+    <div>
       <BearModal showBear={showBear} handleClose={() => setShowBear(false)} />
       <ChargeModal showCharge={showCharge} handleClose={() => setShowCharge(false)} />
       <ChroniclrModal showChroniclr={showChroniclr} handleClose={() => setShowChroniclr(false)} />
       <ProfModal showProf={showProf} handleClose={() => setShowProf(false)} />
       <TeeModal showTee={showTee} handleClose={() => setShowTee(false)} />
       <NoNoModal showNono={showNoNo} handleClose={() => setShowNoNo(false)} />
-      <Card css={css`${hackathonCard}; ${altCardBackground};`}>
-        <Card.Img variant="top" src={bearBuddies} />
-        <Card.Body>
-          <Card.Title>nwHacks 2021: Bear Buddies</Card.Title>
-          <Card.Text css={cardText}>
-            Created a solution that would ease mental health issues among kids, young adults, and adults by allowing them to play with a Tamagotchi/virtual pet that grows and plays with them. We created a web application allowing users to customize and play with their own pet by doing a set number of actions with it.
-          </Card.Text>
-          <Button variant="primary" css={moreInfoButton} onClick={() => setShowBear(true)}>More info</Button>
-        </Card.Body>
-      </Card>
-      <Card css={css`${hackathonCard}; ${altCardBackground};`}>
-        <Card.Img variant="top" src={chargeUP} />
-        <Card.Body>
-          <Card.Title>Dubhacks 2019: chargeUp</Card.Title>
-          <Card.Text css={cardText}>
-            Our team formed when we came to a consensus that we all wanted to be entrepreneurs who could positively impact the world. We want to encourage everyone to decrease their carbon footprint not only limited to converting to driving an EV but also sharing resources such as the chargers.
-          </Card.Text>
-          <Button variant="primary" css={moreInfoButton} onClick={() => setShowCharge(true)}>More info</Button>
-        </Card.Body>
-      </Card>
-      <Card css={css`${hackathonCard}; ${defaultCardBackground};`}>
-        <Card.Img variant="top" src={chroniclr} />
-        <Card.Body>
-          <Card.Title>nwHacks 2020: Chroniclr</Card.Title>
-          <Card.Text css={cardText}>
-            One of the main concerns of today's society is the increasing number of responsibilities that an individual has in their lives. In many ways, a person has many goals to want to achieve but unfortunately, the inability to plan out how to target such wishes.
-          </Card.Text>
-          <Button variant="primary" css={moreInfoButton} onClick={() => setShowChroniclr(true)}>More info</Button>
-        </Card.Body>
-      </Card>
-      <Card css={css`${hackathonCard}; ${defaultCardBackground};`}>
-        <Card.Img variant="top" src={profStats} />
-        <Card.Body>
-          <Card.Title>nwHacks 2019: ProfStats</Card.Title>
-          <Card.Text css={cardText}>
-            We wanted a way to aggregate professor data in order to provide students the easiest way to select their professors for their classes. This was a vision that many students shared interest in using if it existed.
-          </Card.Text>
-          <Button variant="primary" css={moreInfoButton} onClick={() => setShowProf(true)}>More info</Button>
-        </Card.Body>
-      </Card>
-      <Card css={css`${hackathonCard}; ${defaultCardBackground};`}>
-        <Card.Img variant="top" src={teepot} />
-        <Card.Body>
-          <Card.Title>Dubhacks 2020: Teepot</Card.Title>
-          <Card.Text css={cardText}>
-            We want to provide a platform to help sponsoring companies find influencers to partner up with and vice versa for the influencers. It is a platform for companies to find suitable influencers based on pairwise comparison and keyword search.
-          </Card.Text>
-          <Button variant="primary" css={moreInfoButton} onClick={() => setShowTee(true)}>More info</Button>
-        </Card.Body>
-      </Card>
-      <Card css={css`${hackathonCard}; ${defaultCardBackground};`}>
-        <Card.Img variant="top" src={nonononotifications} />
-        <Card.Body>
-          <Card.Title>TerribleHack VR: Nonononotifications</Card.Title>
-          <Card.Text css={cardText}>
-            The inspiration for our name came from the feeling when you see one of our notifications. It'll get you saying, "NONONO" in no time!
-          </Card.Text>
-          <Button variant="primary" css={moreInfoButton} onClick={() => setShowNoNo(true)}>More info</Button>
-        </Card.Body>
-      </Card>
+      <VisibilitySensor partialVisibility>
+        {({ isVisible }) => (
+          <AnimCard isVisible={isVisible} />
+        )}
+      </VisibilitySensor>
     </div>
   );
 };

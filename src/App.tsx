@@ -10,7 +10,7 @@ import Home from './components/home.component';
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="Container">
+      <div className="Container" css={css`overflow-y: hidden;`}>
         <Scrollhandler />
         <Navbar />
         <Route path="/" exact component={Home} />
