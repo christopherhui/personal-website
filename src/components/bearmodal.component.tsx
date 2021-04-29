@@ -15,6 +15,16 @@ const image = css`
   transform: scale(1);
 `;
 
+const LetsNotKeepThis = () => {
+  return (
+    <div>
+      <br />
+      <br />
+        Also Lina if you are reading this, I'm happy to have met you 😊.
+    </div>
+  );
+};
+
 const BearModal = ({ showBear, handleClose }: Props) => {
   return (
     <Modal show={showBear} onHide={handleClose}>
@@ -26,9 +36,6 @@ const BearModal = ({ showBear, handleClose }: Props) => {
         This was my third time participating in nwHacks as part of a seemingly ongoing tradition that I partake in it every year.
         However, having this year having it be virtual had made it especially more interesting because collaboration was much more challenging.
         Unlike my previous years, I worked with a new team, which I absolutely loved! I hope to participate in more hackathons with them in the future.
-        <br />
-        <br />
-        Also Lina if you are reading this, I'm happy to have met you 😊.
       </Modal.Body>
       <Modal.Footer>
         <Link to={{ pathname: 'https://devpost.com/software/bear-buddies-3barhl' }} target="_blank">

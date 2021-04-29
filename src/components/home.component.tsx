@@ -4,6 +4,7 @@ import * as React from 'react';
 import { Image, Button } from 'react-bootstrap';
 import Timeline from './timeline.component';
 import Hackathons from './hackathons.component';
+import Projects from './projects.component';
 import { Link } from 'react-router-dom';
 import { ArrowRightSquareFill } from 'react-bootstrap-icons';
 
@@ -75,6 +76,10 @@ const experience = css({
 });
 
 const expTitle = css({
+  textAlign: 'center',
+});
+
+const projectTitle = css({
   textAlign: 'center',
 });
 
@@ -169,7 +174,7 @@ const Home = () => {
       <div css={projectBackground} id='#projects'>
         <div css={experience}>
           <br />
-          <h1 css={expTitle}>Personal Projects</h1>
+          <h1 css={projectTitle}>Personal Projects</h1>
         </div>
       </div>
     </div>

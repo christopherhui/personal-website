@@ -127,7 +127,7 @@ const Hackathons = () => {
           <Button variant="primary" css={moreInfoButton} onClick={() => setShowNoNo(true)}>More info</Button>
         </Card.Body>
       </Card>
-    </div >
+    </div>
   );
 };
 
