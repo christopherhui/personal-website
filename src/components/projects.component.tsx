@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
 import * as React from 'react';
-import { useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 
 import compprog from '../assets/compprog.jpg';
+import ubcprofs from '../assets/ubcprofs.png';
 
 const Projects = () => {
   return (
@@ -14,7 +14,6 @@ const Projects = () => {
           className="d-block w-100"
           src={compprog}
           alt="Competitive Programming"
-          width="1"
         />
         <Carousel.Caption>
           <h3>Competitive Programming</h3>
@@ -24,25 +23,12 @@ const Projects = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=282c34"
+          src={ubcprofs}
           alt="Second slide"
         />
-
         <Carousel.Caption>
-          <h3>UBCProfs</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=20232a"
-          alt="Third slide"
-        />
-
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          <h3 css={css`color: black`}>UBCProfs</h3>
+          <p css={css`color: black`}>Created an application to let students at UBC find grade statistics of UBC professors who have taught in the past.</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
