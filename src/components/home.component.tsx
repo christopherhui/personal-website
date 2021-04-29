@@ -113,6 +113,8 @@ const socials = css({
 
 const resume = css({
   float: 'right',
+  clear: 'both',
+  marginTop: '-40px',
 });
 
 const hackathons = css({
@@ -179,9 +181,15 @@ const ResumeSection = ({ isVisible }: VisibleProps) => {
   });
 
   return (
-    <animated.div style={resumeAnimation} css={resume}>
+    <animated.div style={resumeAnimation} css={css`${resume}; 
+    @media only screen and (max-width: 500px) {
+      float: none;
+    }`}>
       <Link to={{ pathname: 'https://1drv.ms/b/s!Ah4MfP6FLBzUhO9Cp7OR8pT-hN4zLA?e=a5h7yg' }} target="_blank">
-        <Button variant="light" size='sm' css={css`padding: .35rem 0.75rem; font-weight: bold;`}>
+        <Button variant="light" size='sm' css={css`padding: .35rem 0.75rem; font-weight: bold; 
+        @media only screen and (max-width: 500px) {
+          margin-top: 20px;
+        }`}>
           <span>View my resume</span>
           <ArrowRightSquareFill css={css`margin-left: 10px; margin-top: -3px`} />
         </Button>
@@ -200,7 +208,13 @@ const ExperienceNavigateSection = ({ isVisible }: VisibleProps) => {
   });
 
   return (
-    <animated.div style={expAnimation} css={css`${aboutMargins}; display: flex; align-items: center; justify-content: center;`}>
+    <animated.div style={expAnimation} css={css`${aboutMargins}; margin-top: 10rem; display: flex; 
+    align-items: center; justify-content: center;
+    @media only screen and (max-width: 500px) {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+  `}>
       <Link to='#experience'>
         <Button variant="light" size='lg'>View my experiences</Button>
         <div className="arrow bounce" />
@@ -289,7 +303,6 @@ const Home = () => {
               <ResumeSection isVisible={isVisible} />
             )}
           </VisibilitySensor>
-          <div css={css`clear: both`} />
         </div>
         <VisibilitySensor partialVisibility>
           {({ isVisible }) => (

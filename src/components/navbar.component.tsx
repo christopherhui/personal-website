@@ -57,7 +57,10 @@ const Navbar = () => {
 
   return (
     <animated.div style={fadeStyles} css={css`${navbar}; background-color: #29539b;
-      background-image: linear-gradient(315deg, #29539b 0%, #1e3b70 74%);`}>
+      background-image: linear-gradient(315deg, #29539b 0%, #1e3b70 74%);
+      @media only screen and (max-width: 500px) {
+        font-size: 13.5px;
+      }`}>
       <Link to={`/#home`}>
         <p>Home</p>
       </Link>
