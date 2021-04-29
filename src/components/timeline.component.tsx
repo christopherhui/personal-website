@@ -16,7 +16,7 @@ const Timeline = () => {
     <VerticalTimelineElement
       contentStyle={{ background: '#04a5bc' }}
       contentArrowStyle={{ borderRight: '7px solid #04a5bc' }}
-      date="Jan 2021 - Apr 2021"
+      date="Starting in June 2021"
       icon={<Akuna style={{ height: 40, width: 40, marginTop: '-20px', marginLeft: '-20px' }} />}
       iconStyle={{ background: '#f3f3f3' }}>
       <h3>Akuna Capital</h3>
