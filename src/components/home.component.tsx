@@ -185,7 +185,7 @@ const ResumeSection = ({ isVisible }: VisibleProps) => {
     @media only screen and (max-width: 500px) {
       float: none;
     }`}>
-      <Link to={{ pathname: 'https://1drv.ms/b/s!Ah4MfP6FLBzUhO9Cp7OR8pT-hN4zLA?e=a5h7yg' }} target="_blank">
+      <Link to={{ pathname: 'https://1drv.ms/b/s!Ah4MfP6FLBzUhPA-kvBeOkMkgBAN4A?e=9bns01' }} target="_blank">
         <Button variant="light" size='sm' css={css`padding: .35rem 0.75rem; font-weight: bold; 
         @media only screen and (max-width: 500px) {
           margin-top: 20px;
