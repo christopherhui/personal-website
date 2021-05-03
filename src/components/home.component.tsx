@@ -268,7 +268,7 @@ const AboutSection = ({ isVisible }: VisibleProps) => {
           <animated.h1 style={header}>Hi!</animated.h1>
           <animated.p style={body}>I'm Christopher, a fourth-year Computer Science student at UBC interested in software and web development.
           I have an interest in participating in as many hackathons as possible and doing competitive programming, which I have been participating in
-          for over 3 years. Some of my other interests include:
+          for over 3 years. Some of my other technical interests include:
           </animated.p>
           <animated.ul style={body}>
             <li>Writing webpages using React Typescript</li>
