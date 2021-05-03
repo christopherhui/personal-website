@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
 import * as React from 'react';
-import { useState, useEffect } from 'react';
 import { Image, Button } from 'react-bootstrap';
 import Timeline from './timeline.component';
 import Hackathons from './hackathons.component';
@@ -11,7 +10,7 @@ import { ArrowRightSquareFill, ArrowUpCircleFill } from 'react-bootstrap-icons';
 import { useSpring, useTrail, animated } from 'react-spring';
 import VisibilitySensor from 'react-visibility-sensor';
 
-import doge from '../assets/doge.png';
+import doge from '../assets/me.png';
 import '../styles/arrow.css';
 
 type VisibleProps = {
@@ -134,13 +133,13 @@ const links = [{
   src: "https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg",
   alt: "christophergkhui",
 }, {
-  href: "https://fb.com/christopher.hui.1865",
-  src: "https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/facebook.svg",
-  alt: "christopher.hui.1865",
+  href: "https://github.com/christopherhui",
+  src: "https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/github.svg",
+  alt: "christopherhui",
 }, {
-  href: "https://instagram.com/its.quatchi",
-  src: "https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/instagram.svg",
-  alt: "its.quatchi",
+  href: "https://devpost.com/christopherhui",
+  src: "https://simpleicons.org/icons/devpost.svg",
+  alt: "christopherhui",
 }, {
   href: "https://codeforces.com/profile/htmlbot",
   src: "https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/codeforces.svg",
@@ -149,7 +148,11 @@ const links = [{
   href: "https://www.leetcode.com/christopherhui",
   src: "https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/leetcode.svg",
   alt: "christopherhui",
-}];
+}, {
+  href: "https://instagram.com/its.quatchi",
+  src: "https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/instagram.svg",
+  alt: "its.quatchi",
+},];
 
 const WidgetSection = ({ isVisible }: VisibleProps) => {
   const widget = useTrail(links.length, {
@@ -274,9 +277,7 @@ const AboutSection = ({ isVisible }: VisibleProps) => {
           </animated.ul>
         </div>
         <animated.div style={img}>
-          <Image src={doge} roundedCircle css={css`${aboutImage}; 
-          background-color: #000000;
-          background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);`} />
+          <Image src={doge} roundedCircle css={css`${aboutImage}; width: 11rem; height: 11rem;`} />
         </animated.div>
       </div>
     </animated.div>
