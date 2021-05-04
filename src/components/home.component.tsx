@@ -201,6 +201,7 @@ const ResumeSection = ({ isVisible }: VisibleProps) => {
   );
 };
 
+// why is my site not loading??? lmao
 const ExperienceNavigateSection = ({ isVisible }: VisibleProps) => {
   const expAnimation = useSpring({
     config,
