@@ -7,6 +7,7 @@ import { ReactComponent as Coursera } from '../assets/coursera.svg';
 import { ReactComponent as Amazon } from '../assets/amazon.svg';
 import { ReactComponent as Hypatia } from '../assets/hypatia.svg';
 import { ReactComponent as UBC } from '../assets/ubc.svg';
+import { ReactComponent as Teradici } from '../assets/teradici.svg';
 
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
@@ -77,6 +78,21 @@ const Timeline = () => {
       <p>
         Teaching assistant for CPSC 213: Introduction to Computer Systems.
       </p>
+    </VerticalTimelineElement>
+    <VerticalTimelineElement
+      contentStyle={{ background: '#0098ce' }}
+      contentArrowStyle={{ borderRight: '7px solid #0098ce' }}
+      date="May 2019 - Aug 2019"
+      icon={<Teradici style={{ height: 40, width: 40, marginTop: '-20px', marginLeft: '-20px' }} />}
+      iconStyle={{ background: 'white', color: 'white' }}>
+      <div style={{ color: '#f5fbfc' }}>
+        <h3>Teradici</h3>
+        <h4>Software Development Intern</h4>
+        <h4>Vancouver, BC</h4>
+        <p>
+          Firmware developer on the Zero Client team.
+        </p>
+      </div>
     </VerticalTimelineElement>
   </VerticalTimeline>);
 };

@@ -31,9 +31,7 @@ const aboutMe = css({
   justifyContent: 'center',
   flexWrap: 'wrap',
   color: 'white',
-  ':hover': {
-    boxShadow: `5px 5px 30px 2px #0056d2`,
-  }
+  boxShadow: '0px 8px 40px rgb(0 0 0 / 14%)'
 });
 
 const aboutMeBackground = css`
