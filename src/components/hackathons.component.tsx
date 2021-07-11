@@ -40,11 +40,13 @@ const hackathonCard = css({
 const defaultCardBackground = css`
   background-color: #7f5a83;
   background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+  box-shadow: 0px 8px 40px rgb(0 0 0 / 14%);
 `;
 
 const altCardBackground = css`
   background-color: #91d370;
   background-image: linear-gradient(319deg, #91d370 0%, #bca0ff 37%, #f2cd54 100%);
+  box-shadow: 0px 8px 40px rgb(0 0 0 / 14%);
 `;
 
 const cardText = css({
